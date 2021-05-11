@@ -1,0 +1,65 @@
+.odd {
+  flex-direction: row-reverse;
+}
+
+.normal {
+  height: 70vh;
+}
+
+.unstyle-link {
+  text-decoration: none;
+  color: rgb(255, 255, 240);
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.project {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10vh;
+  .pic {
+    margin-bottom: 2vh;
+    border-radius: 10px;
+  }
+  .content-wrap {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    .content {
+      width: 300px;
+      align-self: flex-end;
+      margin-bottom: 15vh;
+    }
+  }
+}
+
+.enhance {
+  animation: enhancing 0.3s ease-in forwards;
+}
+
+.reduce {
+  animation: reducing 0.1s ease-in forwards;
+}
+
+@keyframes enhancing {
+  0% {
+    width: 40vw;
+    height: 22vw;
+  }
+  100% {
+    width: 80vw;
+    height: 40vw;
+  }
+}
+
+@keyframes reducing {
+  0% {
+    width: 80vw;
+    height: 40vw;
+  }
+  100% {
+    width: 40vw;
+    height: 22vw;
+  }
+}

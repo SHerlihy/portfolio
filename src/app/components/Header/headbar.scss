@@ -1,0 +1,67 @@
+.headbar {
+  width: 100%;
+  height: 7vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  background-color: rgb(20, 20, 25);
+
+  .contact {
+    background-color: rgb(20, 20, 25);
+    font-size: 100%;
+    font-family: inherit;
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  .ends {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+  }
+  .ends:hover {
+    background-color: rgb(20, 20, 120);
+  }
+  .proj-button {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  * {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+
+    :hover {
+      background-color: rgb(20, 20, 120);
+    }
+  }
+  .highlight {
+    background-color: rgb(20, 20, 120);
+  }
+}
+
+.contact-info {
+  background-color: rgb(20, 20, 120);
+  position: fixed;
+  padding: 10px;
+  right: 0;
+  top: 7vh;
+  z-index: 10;
+}

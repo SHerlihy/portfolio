@@ -1,0 +1,94 @@
+.multiplayer-wrap {
+  margin-top: 7vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.multiplayer-wrap .main-pic-wrap {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: black;
+  margin-bottom: 10vh;
+}
+
+.multiplayer-wrap .main-pic-wrap .main-pic {
+  width: 80%;
+}
+
+.multiplayer-wrap .multiplayer {
+  padding: 0;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.multiplayer-wrap .multiplayer .main-desc {
+  margin: 0 0 10vh 0;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.multiplayer-wrap .carousel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 93vh;
+  width: 100%;
+}
+
+.multiplayer-wrap .carousel button {
+  width: 10%;
+  background-color: #141419;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.multiplayer-wrap .carousel button:hover {
+  background-color: #1e1e23;
+}
+
+.multiplayer-wrap .carousel button * {
+  color: white;
+  font-size: large;
+}
+
+.multiplayer-wrap .carousel .content {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 80%;
+  overflow: hidden;
+}
+/*# sourceMappingURL=multiplayer.css.map */

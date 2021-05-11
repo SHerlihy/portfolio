@@ -1,0 +1,48 @@
+.wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+.enhance {
+  width: 100%;
+}
+
+.pic-left {
+  float: left;
+  margin-right: 30px;
+}
+
+.pic-right {
+  float: right;
+  margin-left: 30px;
+}
+
+.sub-desc {
+  padding: 30px;
+}
+
+.slide-enhance {
+  animation: enhancing-slide 0.3s ease-in forwards;
+}
+
+.slide-reduce {
+  animation: reducing-slide 0.1s ease-in forwards;
+}
+
+@keyframes enhancing-slide {
+  0% {
+    width: 60%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes reducing-slide {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 60%;
+  }
+}
