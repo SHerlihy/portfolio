@@ -1,0 +1,28 @@
+.about-wrap {
+  z-index: 5;
+  margin-top: 70vh;
+  width: 100%;
+  background-color: #19191e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.about-wrap .about {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  width: 80%;
+}
+
+.about-wrap .about .steve {
+  margin: 1vh;
+  float: left;
+  shape-outside: circle();
+  border-radius: 50%;
+  width: 20vh;
+  height: 20vh;
+}
+/*# sourceMappingURL=about.css.map */

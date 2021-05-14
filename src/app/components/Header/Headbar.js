@@ -4,6 +4,8 @@ import { changeCurrentPage } from "../../../actions/index";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import "./headbar.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 
 const ContactInfo = (props) => {
   return (
@@ -14,6 +16,8 @@ const ContactInfo = (props) => {
 };
 
 const Headbar = () => {
+  const viewVertical = useSelector((state) => state.viewVertical);
+
   const currentPage = useSelector((state) => state.currentPage);
 
   const [showContact, setShowContact] = useState(false);
@@ -44,28 +48,32 @@ const Headbar = () => {
             className={currentPage === "multiplayer" && "highlight"}
             to="/multiplayer"
           >
-            Multiplayer Game
+            {viewVertical ? <i class="fas fa-gamepad"></i> : "Multiplayer Game"}
           </Link>
           <Link
             onClick={() => changePage("builder")}
             className={currentPage === "builder" && "highlight"}
             to="/builder"
           >
-            Burger Builder
+            {viewVertical ? <i class="fas fa-hamburger"></i> : "Burger Builder"}
           </Link>
           <Link
             onClick={() => changePage("inventory")}
             className={currentPage === "inventory" && "highlight"}
             to="/inventory"
           >
-            Inventory Management
+            {viewVertical ? (
+              <i class="fas fa-clipboard-list"></i>
+            ) : (
+              "Inventory Manager"
+            )}
           </Link>
         </div>
         <button
           className={`ends contact ${showContact && "highlight"}`}
           onClick={renderContact}
         >
-          Contact
+          {viewVertical ? <i class="far fa-envelope-open"></i> : "Contact Me"}
         </button>
       </nav>
       {showContact &&

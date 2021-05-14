@@ -18,6 +18,35 @@
   text-decoration: underline;
 }
 
+.vert-title {
+  margin-left: 2vw;
+  margin-bottom: 5vw;
+}
+
+.vert-project {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 10vw;
+  width: 100%;
+}
+
+.vert-project .vert-pic {
+  width: 100%;
+  margin-bottom: 5vw;
+}
+
+.vert-project .vert-content {
+  width: 90%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
 .project {
   display: -webkit-box;
   display: -ms-flexbox;

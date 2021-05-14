@@ -1,4 +1,6 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { changeViewVertical } from "../actions/index";
 import { Route } from "react-router-dom";
 import "./app.css";
 import Headbar from "./components/Header/Headbar";
@@ -7,6 +9,30 @@ import Home from "./Home/Home";
 const Multiplayer = lazy(() => import("./Multiplayer/Multiplayer"));
 
 function App() {
+  const dispatch = useDispatch();
+
+  window.addEventListener(
+    "resize",
+    () => {
+      const isVertical = window.innerHeight > window.innerWidth;
+      console.log(isVertical);
+      dispatch(changeViewVertical(isVertical));
+    },
+    false
+  );
+
+  // useEffect(() => {
+  //   console.log("wooo");
+  //   window.addEventListener(
+  //     "resize",
+  //     () => {
+  //       const isVertical = window.innerHeight > window.innerWidth;
+  //       dispatch(changeViewVertical(isVertical));
+  //     },
+  //     false
+  //   );
+  // }, []);
+
   const projects = {
     multiplayer: {
       title: "Multiplayer Game",

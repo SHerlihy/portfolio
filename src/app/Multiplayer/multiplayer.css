@@ -1,3 +1,81 @@
+.vert-multiplayer-wrap {
+  margin-top: 7vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.vert-multiplayer-wrap .vert-main-pic {
+  width: 100%;
+  margin-bottom: 10vw;
+}
+
+.vert-multiplayer-wrap .vert-multiplayer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0;
+  width: 100%;
+}
+
+.vert-multiplayer-wrap .vert-multiplayer .vert-main-desc {
+  width: 90%;
+}
+
+.vert-multiplayer-wrap .vert-carousel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 800px;
+  width: 100%;
+}
+
+.vert-multiplayer-wrap .vert-carousel .vert-content {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  overflow: hidden;
+}
+
+.vert-multiplayer-wrap .vert-btn-wrap {
+  width: 100%;
+}
+
+.vert-multiplayer-wrap .vert-btn-wrap button {
+  width: 50%;
+  height: 10vh;
+  background-color: #141419;
+  color: white;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
 .multiplayer-wrap {
   margin-top: 7vh;
   width: 100%;

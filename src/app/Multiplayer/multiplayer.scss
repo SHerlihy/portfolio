@@ -1,3 +1,52 @@
+.vert-multiplayer-wrap {
+  margin-top: 7vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .vert-main-pic {
+    width: 100%;
+    margin-bottom: 10vw;
+  }
+
+  .vert-multiplayer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+    .vert-main-desc {
+      width: 90%;
+    }
+  }
+  .vert-carousel {
+    display: flex;
+    flex-direction: row;
+    height: 800px;
+    width: 100%;
+    .vert-content {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      overflow: hidden;
+    }
+  }
+  .vert-btn-wrap {
+    width: 100%;
+    button {
+      width: 50%;
+      height: 10vh;
+      background-color: rgba(20, 20, 25, 1);
+      color: rgb(255, 255, 255);
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
+
 .multiplayer-wrap {
   margin-top: 7vh;
   width: 100%;

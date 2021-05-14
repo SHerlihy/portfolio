@@ -4,3 +4,10 @@ export const changeCurrentPage = (page) => {
     payload: page,
   };
 };
+
+export const changeViewVertical = (vertical) => {
+  return {
+    type: "CHANGE_VIEW_VERTICAL",
+    payload: vertical,
+  };
+};

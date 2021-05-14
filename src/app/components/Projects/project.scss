@@ -14,6 +14,26 @@
   }
 }
 
+.vert-title {
+  margin-left: 2vw;
+  margin-bottom: 5vw;
+}
+
+.vert-project {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10vw;
+  width: 100%;
+  .vert-pic {
+    width: 100%;
+    margin-bottom: 5vw;
+  }
+  .vert-content {
+    width: 90%;
+    align-self: center;
+  }
+}
+
 .project {
   display: flex;
   justify-content: space-between;

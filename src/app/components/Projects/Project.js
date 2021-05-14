@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { changeCurrentPage } from "../../../actions/index";
 import { Link } from "react-router-dom";
 import "./project.css";
 
 const Project = ({ address, image, pics, title, description, idx }) => {
+  const viewVertical = useSelector((state) => state.viewVertical);
+
   const [showPics, setShowPics] = useState(false);
 
   const dispatch = useDispatch();
@@ -19,6 +21,38 @@ const Project = ({ address, image, pics, title, description, idx }) => {
 
   const overlayPics = () => {
     setShowPics((prev) => !prev);
+  };
+
+  const vertical = () => {
+    return (
+      <div className={`vert-project`}>
+        <Link
+          className="unstyle-link vert-title"
+          onClick={() => changePage(address)}
+          to={`/${address}`}
+        >
+          {title}
+        </Link>
+        <img
+          onMouseEnter={overlayPics}
+          onMouseLeave={overlayPics}
+          className={`vert-pic`}
+          src={image}
+        ></img>
+        <div className="vert-content">
+          <p>
+            {briefDesc()}
+            <Link
+              className="unstyle-link"
+              onClick={() => changePage(address)}
+              to={`/${address}`}
+            >
+              more
+            </Link>
+          </p>
+        </div>
+      </div>
+    );
   };
 
   const elements = (odd) => {
@@ -59,7 +93,7 @@ const Project = ({ address, image, pics, title, description, idx }) => {
     );
   };
 
-  return elements(idx % 2);
+  return viewVertical ? vertical() : elements(idx % 2);
 };
 
 export default Project;

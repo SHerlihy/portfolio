@@ -1,0 +1,21 @@
+.about-wrap {
+  z-index: 5;
+  margin-top: 70vh;
+  width: 100%;
+  background-color: rgb(25, 25, 30);
+  display: flex;
+  justify-content: center;
+  .about {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    width: 80%;
+    .steve {
+      margin: 1vh;
+      float: left;
+      shape-outside: circle();
+      border-radius: 50%;
+      width: 20vh;
+      height: 20vh;
+    }
+  }
+}
