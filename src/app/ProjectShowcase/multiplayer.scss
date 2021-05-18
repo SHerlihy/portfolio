@@ -1,31 +1,12 @@
-.vert-multiplayer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0;
-  width: 100%;
-  .vert-main-desc {
-    width: 90%;
-  }
-}
-.vert-carousel {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  .vert-content {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    overflow: hidden;
-  }
-}
-
 .multiplayer-wrap {
   margin-top: 7vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  a {
+    color: rgb(255, 255, 255);
+  }
 
   .vert-main-pic {
     width: 100%;
