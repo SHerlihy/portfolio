@@ -27,12 +27,11 @@
 }
 
 .showcase .site-name {
-  position: absolute;
-  top: 20vh;
   z-index: 2;
 }
 
 .showcase .sell-words {
+  height: 1rem;
   z-index: 2;
 }
 /*# sourceMappingURL=showcase.css.map */

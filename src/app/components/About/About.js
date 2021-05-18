@@ -12,8 +12,10 @@ const About = () => {
           are currently on is a showcase of a select number of projects I have
           created. Scroll down for summaries of these projects or use the
           navigation bar above to visit an individual projects showcase page.
-          Also, feel free to hover your mouse on any images you would like a
-          better view of (unless your on mobile).
+          <br />
+          <br />
+          If you'd like to browse my GitHub profile click{" "}
+          <a href="https://github.com/SHerlihy">here</a>.
         </p>
       </div>
     </div>

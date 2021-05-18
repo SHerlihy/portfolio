@@ -3,6 +3,16 @@
   padding: 0;
 }
 
+.slide {
+  position: absolute;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: ease-in;
+  transition: ease-in;
+}
+
 .enhance {
   width: 100%;
 }
@@ -29,6 +39,98 @@
 .slide-reduce {
   -webkit-animation: reducing-slide 0.1s ease-in forwards;
           animation: reducing-slide 0.1s ease-in forwards;
+}
+
+.show {
+  left: 0%;
+}
+
+.r1 {
+  left: 100%;
+}
+
+.r2 {
+  left: 200%;
+}
+
+.r3 {
+  left: 300%;
+}
+
+.r4 {
+  left: 400%;
+}
+
+@-webkit-keyframes out-left {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+@keyframes out-left {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+@-webkit-keyframes in-left {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+@keyframes in-left {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+@-webkit-keyframes out-right {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes out-right {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@-webkit-keyframes in-right {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+@keyframes in-right {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
 }
 
 @-webkit-keyframes enhancing-slide {

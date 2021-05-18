@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import Slide from "../components/Slide/Slide";
 import "./multiplayer.css";
 
-const Multiplayer = ({ image, pics, description, descriptions }) => {
+const Multiplayer = ({ image, pics, description, descriptions, repo }) => {
   const viewVertical = useSelector((state) => state.viewVertical);
   const [carouselPosition, setCarouselPosition] = useState(0);
 
+  const leftBtn = useRef(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const nextSlide = () => {
+    leftBtn.current = false;
     if (carouselPosition === pics.length - 1) {
       return setCarouselPosition(0);
     }
@@ -15,6 +22,7 @@ const Multiplayer = ({ image, pics, description, descriptions }) => {
   };
 
   const prevSlide = () => {
+    leftBtn.current = true;
     if (carouselPosition === 0) {
       return setCarouselPosition(pics.length - 1);
     }
@@ -31,11 +39,20 @@ const Multiplayer = ({ image, pics, description, descriptions }) => {
           {description.map((e) => {
             return <p className="main-desc">{e}</p>;
           })}
+          <p className="main-desc">
+            To browse the repositories please click <a href={repo[0]}>here</a>{" "}
+            for the front-end and <a href={repo[1]}>here</a> for the back-end.
+          </p>
         </div>
-        <div className="carousel">
-          <button onClick={prevSlide}>
-            <i class="fas fa-chevron-circle-left"></i>
-          </button>
+        <div
+          style={viewVertical ? { height: "800px" } : { height: "93hv" }}
+          className="carousel"
+        >
+          {viewVertical && (
+            <button onClick={prevSlide}>
+              <i class="fas fa-chevron-circle-left"></i>
+            </button>
+          )}
           <div className="content">
             {pics.map((e, i) => {
               return (
@@ -44,13 +61,25 @@ const Multiplayer = ({ image, pics, description, descriptions }) => {
                   i={i}
                   carouselPosition={carouselPosition}
                   descriptions={descriptions}
+                  button={leftBtn.current}
                 />
               );
             })}
           </div>
-          <button onClick={nextSlide}>
-            <i class="fas fa-chevron-circle-right"></i>
-          </button>
+          {viewVertical ? (
+            <div className="vert-btn-wrap">
+              <button onClick={prevSlide}>
+                <i class="fas fa-chevron-circle-left"></i>
+              </button>
+              <button onClick={nextSlide}>
+                <i class="fas fa-chevron-circle-right"></i>
+              </button>
+            </div>
+          ) : (
+            <button onClick={nextSlide}>
+              <i class="fas fa-chevron-circle-right"></i>
+            </button>
+          )}
         </div>
       </div>
     );
@@ -67,13 +96,14 @@ const Multiplayer = ({ image, pics, description, descriptions }) => {
         </div>
         <div className="vert-carousel">
           <div className="vert-content">
-            {pics.map((e, i) => {
+            {pics.map((e, i, arr) => {
               return (
                 <Slide
                   e={e}
                   i={i}
                   carouselPosition={carouselPosition}
                   descriptions={descriptions}
+                  button={leftBtn.current}
                 />
               );
             })}

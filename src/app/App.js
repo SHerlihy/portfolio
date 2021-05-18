@@ -1,5 +1,5 @@
-import { lazy, Suspense, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { lazy, Suspense } from "react";
+import { useDispatch } from "react-redux";
 import { changeViewVertical } from "../actions/index";
 import { Route } from "react-router-dom";
 import "./app.css";
@@ -20,18 +20,6 @@ function App() {
     },
     false
   );
-
-  // useEffect(() => {
-  //   console.log("wooo");
-  //   window.addEventListener(
-  //     "resize",
-  //     () => {
-  //       const isVertical = window.innerHeight > window.innerWidth;
-  //       dispatch(changeViewVertical(isVertical));
-  //     },
-  //     false
-  //   );
-  // }, []);
 
   const projects = {
     multiplayer: {
@@ -66,6 +54,10 @@ function App() {
           "Aside from rolling two dice per click and being able to choose the appropriate die based on the “advantage” button clicked, the roll20 component is very similar to the Die component. ",
         ],
       ],
+      repo: [
+        "https://github.com/SHerlihy/game-cli",
+        "https://github.com/SHerlihy/game-server",
+      ],
     },
     builder: {
       title: "Burger Builder",
@@ -87,6 +79,10 @@ function App() {
           "The choice component on the left dynamically renders a css image of the ingredient using the ingredient prop. The add and remove props that have been passed in are used in the button elements allowing the state that is higher up in the component tree to be updated.",
           "The ingredient component on the right is rendered multiple times with different ingredients to show the ingredients inside the users custom burger.",
         ],
+      ],
+      repo: [
+        "https://github.com/SHerlihy/burger-builder",
+        "https://github.com/SHerlihy/burger-backend",
       ],
     },
     inventory: {
@@ -112,6 +108,10 @@ function App() {
           "The backend web application has API routes that serve data to the burger builder app and the stock management app. I’m using express and mongoose to help me create the backend. In the comment on the right, you can see I’ve expressed the intended use is to only have certain routes available to the applications that are used by the client and not exposed in apps used by the client’s customers. The reason for this is to increase the safety of the app.",
         ],
       ],
+      repo: [
+        "https://github.com/SHerlihy/burger-manager",
+        "https://github.com/SHerlihy/burger-backend",
+      ],
     },
   };
   return (
@@ -129,6 +129,7 @@ function App() {
                 pics={projects[e]["pics"]}
                 descriptions={projects[e]["descriptions"]}
                 description={projects[e]["description"]}
+                repo={projects[e]["repo"]}
               />
             </Route>
           );

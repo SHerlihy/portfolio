@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import About from "../components/About/About";
 import Project from "../components/Projects/Project";
 import Showcase from "../components/Showcase/Showcase";
 import "./home.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Home = ({ data }) => {
   const viewVertical = useSelector((state) => state.viewVertical);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="home">

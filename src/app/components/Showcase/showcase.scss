@@ -15,11 +15,13 @@
     z-index: 1;
   }
   .site-name {
-    position: absolute;
-    top: 20vh;
+    // position: absolute;
+    // top: 20vh;
+
     z-index: 2;
   }
   .sell-words {
+    height: 1rem;
     z-index: 2;
   }
 }
