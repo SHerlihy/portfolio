@@ -19,18 +19,6 @@
     overflow: hidden;
   }
 }
-.vert-btn-wrap {
-  width: 100%;
-  .vert-button {
-    width: 50%;
-    height: 10vh;
-    background-color: rgba(20, 20, 25, 1);
-    color: rgb(255, 255, 255);
-    border: none;
-    padding: 0;
-    margin: 0;
-  }
-}
 
 .multiplayer-wrap {
   margin-top: 7vh;
@@ -88,6 +76,18 @@
       display: flex;
       flex-direction: row;
       overflow: hidden;
+    }
+  }
+  .vert-btn-wrap {
+    width: 100%;
+    .vert-button {
+      width: 50%;
+      height: 10vh;
+      background-color: rgba(20, 20, 25, 1);
+      color: rgb(255, 255, 255);
+      border: none;
+      padding: 0;
+      margin: 0;
     }
   }
 }

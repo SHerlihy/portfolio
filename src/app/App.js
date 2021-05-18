@@ -6,7 +6,7 @@ import "./app.css";
 import Headbar from "./components/Header/Headbar";
 import Home from "./Home/Home";
 
-const Multiplayer = lazy(() => import("./Multiplayer/Multiplayer"));
+const ProjectShowcase = lazy(() => import("./ProjectShowcase/ProjectShowcase"));
 
 function App() {
   const dispatch = useDispatch();
@@ -124,7 +124,7 @@ function App() {
         {Object.keys(projects).map((e) => {
           return (
             <Route key={e} path={`/${e}`}>
-              <Multiplayer
+              <ProjectShowcase
                 image={projects[e]["image"]}
                 pics={projects[e]["pics"]}
                 descriptions={projects[e]["descriptions"]}

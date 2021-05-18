@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Slide from "../components/Slide/Slide";
 import "./multiplayer.css";
 
-const Multiplayer = ({ image, pics, description, descriptions, repo }) => {
+const ProjectShowcase = ({ image, pics, description, descriptions, repo }) => {
   const viewVertical = useSelector((state) => state.viewVertical);
   const [carouselPosition, setCarouselPosition] = useState(0);
 
@@ -103,4 +103,4 @@ const Multiplayer = ({ image, pics, description, descriptions, repo }) => {
   return projectPage();
 };
 
-export default Multiplayer;
+export default ProjectShowcase;
