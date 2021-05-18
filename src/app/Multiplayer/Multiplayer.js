@@ -29,31 +29,45 @@ const Multiplayer = ({ image, pics, description, descriptions, repo }) => {
     setCarouselPosition((prev) => prev - 1);
   };
 
-  const horizontal = () => {
+  const projectPage = () => {
     return (
       <div className="multiplayer-wrap">
-        <div className="main-pic-wrap">
-          <img className="main-pic" src={image}></img>
-        </div>
-        <div className="multiplayer">
+        {viewVertical ? (
+          <img className="vert-main-pic" src={image}></img>
+        ) : (
+          <div className="main-pic-wrap">
+            <img className="main-pic" src={image}></img>
+          </div>
+        )}
+        <div
+          style={viewVertical ? { width: "100%" } : { width: "80%" }}
+          className="multiplayer"
+        >
           {description.map((e) => {
-            return <p className="main-desc">{e}</p>;
+            return (
+              <p className={viewVertical ? "vert-main-desc" : "main-desc"}>
+                {e}
+              </p>
+            );
           })}
-          <p className="main-desc">
+          <p className={viewVertical ? "vert-main-desc" : "main-desc"}>
             To browse the repositories please click <a href={repo[0]}>here</a>{" "}
             for the front-end and <a href={repo[1]}>here</a> for the back-end.
           </p>
         </div>
         <div
-          style={viewVertical ? { height: "800px" } : { height: "93hv" }}
+          style={viewVertical ? { height: "800px" } : { height: "93vh" }}
           className="carousel"
         >
-          {viewVertical && (
-            <button onClick={prevSlide}>
+          {!viewVertical && (
+            <button className="horiz-button" onClick={prevSlide}>
               <i class="fas fa-chevron-circle-left"></i>
             </button>
           )}
-          <div className="content">
+          <div
+            style={viewVertical ? { width: "100%" } : { width: "80%" }}
+            className="content"
+          >
             {pics.map((e, i) => {
               return (
                 <Slide
@@ -66,62 +80,27 @@ const Multiplayer = ({ image, pics, description, descriptions, repo }) => {
               );
             })}
           </div>
-          {viewVertical ? (
-            <div className="vert-btn-wrap">
-              <button onClick={prevSlide}>
-                <i class="fas fa-chevron-circle-left"></i>
-              </button>
-              <button onClick={nextSlide}>
-                <i class="fas fa-chevron-circle-right"></i>
-              </button>
-            </div>
-          ) : (
-            <button onClick={nextSlide}>
+          {!viewVertical && (
+            <button className="horiz-button" onClick={nextSlide}>
               <i class="fas fa-chevron-circle-right"></i>
             </button>
           )}
         </div>
-      </div>
-    );
-  };
-
-  const vert = () => {
-    return (
-      <div className="vert-multiplayer-wrap">
-        <img className="vert-main-pic" src={image}></img>
-        <div className="vert-multiplayer">
-          {description.map((e) => {
-            return <p className="vert-main-desc">{e}</p>;
-          })}
-        </div>
-        <div className="vert-carousel">
-          <div className="vert-content">
-            {pics.map((e, i, arr) => {
-              return (
-                <Slide
-                  e={e}
-                  i={i}
-                  carouselPosition={carouselPosition}
-                  descriptions={descriptions}
-                  button={leftBtn.current}
-                />
-              );
-            })}
+        {viewVertical && (
+          <div className="vert-btn-wrap">
+            <button className="vert-button" onClick={prevSlide}>
+              <i class="fas fa-chevron-circle-left"></i>
+            </button>
+            <button className="vert-button" onClick={nextSlide}>
+              <i class="fas fa-chevron-circle-right"></i>
+            </button>
           </div>
-        </div>
-        <div className="vert-btn-wrap">
-          <button onClick={prevSlide}>
-            <i class="fas fa-chevron-circle-left"></i>
-          </button>
-          <button onClick={nextSlide}>
-            <i class="fas fa-chevron-circle-right"></i>
-          </button>
-        </div>
+        )}
       </div>
     );
   };
 
-  return viewVertical ? vert() : horizontal();
+  return projectPage();
 };
 
 export default Multiplayer;

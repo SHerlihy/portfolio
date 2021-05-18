@@ -1,24 +1,4 @@
-.vert-multiplayer-wrap {
-  margin-top: 7vh;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.vert-multiplayer-wrap .vert-main-pic {
-  width: 100%;
-  margin-bottom: 10vw;
-}
-
-.vert-multiplayer-wrap .vert-multiplayer {
+.vert-multiplayer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -33,11 +13,11 @@
   width: 100%;
 }
 
-.vert-multiplayer-wrap .vert-multiplayer .vert-main-desc {
+.vert-multiplayer .vert-main-desc {
   width: 90%;
 }
 
-.vert-multiplayer-wrap .vert-carousel {
+.vert-carousel {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -45,11 +25,10 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  height: 800px;
   width: 100%;
 }
 
-.vert-multiplayer-wrap .vert-carousel .vert-content {
+.vert-carousel .vert-content {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -58,15 +37,14 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  width: 100%;
   overflow: hidden;
 }
 
-.vert-multiplayer-wrap .vert-btn-wrap {
+.vert-btn-wrap {
   width: 100%;
 }
 
-.vert-multiplayer-wrap .vert-btn-wrap button {
+.vert-btn-wrap .vert-button {
   width: 50%;
   height: 10vh;
   background-color: #141419;
@@ -91,6 +69,11 @@
           align-items: center;
 }
 
+.multiplayer-wrap .vert-main-pic {
+  width: 100%;
+  margin-bottom: 10vw;
+}
+
 .multiplayer-wrap .main-pic-wrap {
   width: 100%;
   display: -webkit-box;
@@ -109,7 +92,6 @@
 
 .multiplayer-wrap .multiplayer {
   padding: 0;
-  width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -136,11 +118,10 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  height: 93vh;
   width: 100%;
 }
 
-.multiplayer-wrap .carousel button {
+.multiplayer-wrap .carousel .horiz-button {
   width: 10%;
   background-color: #141419;
   border: none;
@@ -148,11 +129,11 @@
   margin: 0;
 }
 
-.multiplayer-wrap .carousel button:hover {
+.multiplayer-wrap .carousel .horiz-button:hover {
   background-color: #1e1e23;
 }
 
-.multiplayer-wrap .carousel button * {
+.multiplayer-wrap .carousel .horiz-button * {
   color: white;
   font-size: large;
 }
@@ -166,7 +147,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  width: 80%;
   overflow: hidden;
 }
 /*# sourceMappingURL=multiplayer.css.map */
