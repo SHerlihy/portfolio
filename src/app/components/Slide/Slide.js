@@ -1,19 +1,16 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleEnhance } from "../../../actions";
 import "./slide.css";
 
 const Slide = ({ e, i, carouselPosition, descriptions, button }) => {
+  const dispatch = useDispatch();
   const viewVertical = useSelector((state) => state.viewVertical);
-
-  const [enhance, setEnhance] = useState(false);
+  const enhance = useSelector((state) => state.enhance);
 
   const enhancePic = () => {
-    setEnhance((prev) => !prev);
+    dispatch(toggleEnhance());
   };
-
-  // const styled = {
-  //   left: `${(i - carouselPosition) * 100}%`,
-  // };
 
   const motion = (btn) => {
     return btn ? leftBtnHandler() : rightBtnHandler();

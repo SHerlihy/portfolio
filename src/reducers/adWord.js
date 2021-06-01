@@ -3,8 +3,7 @@ const adWord = (state = "", { type, letter }) => {
     case "RESET_AD_WORD":
       return "";
     case "ADD_LETTER":
-      const prev = [...state];
-      const update = [prev, letter].toString();
+      const update = state + letter;
       return update;
     default:
       return state;

@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { changeCurrentPage } from "../../../actions/index";
+import { changeCurrentPage, toggleShowPics } from "../../../actions/index";
 import { Link } from "react-router-dom";
 import "./project.css";
 
 const Project = ({ address, image, pics, title, description, idx }) => {
-  const viewVertical = useSelector((state) => state.viewVertical);
-
-  const [showPics, setShowPics] = useState(false);
-
   const dispatch = useDispatch();
+  const viewVertical = useSelector((state) => state.viewVertical);
+  const showPics = useSelector((state) => state.showPics[title]);
 
   const changePage = (page) => {
     dispatch(changeCurrentPage(page));
@@ -20,7 +18,7 @@ const Project = ({ address, image, pics, title, description, idx }) => {
   };
 
   const overlayPics = () => {
-    setShowPics((prev) => !prev);
+    dispatch(toggleShowPics(title));
   };
 
   const vertical = () => {

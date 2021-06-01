@@ -1,8 +1,10 @@
-const showPics = (state = false, { type }) => {
+const showPics = (state = false, { type, uid }) => {
+  const update = { ...state };
+  if (state[uid] === undefined) update[uid] = false;
   switch (type) {
     case "TOGGLE_SHOW_PICS":
-      const prev = { ...state };
-      return !prev;
+      update[uid] = !update[uid];
+      return update;
     default:
       return state;
   }

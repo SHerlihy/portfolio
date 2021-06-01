@@ -1,7 +1,7 @@
-const iconContact = (state = false, { type }) => {
+const iconContact = (state = false, { type, bool }) => {
   switch (type) {
-    case "CONTACT_TO_ICON":
-      return true;
+    case "SET_ICON_CONTACT":
+      return bool;
     default:
       return state;
   }

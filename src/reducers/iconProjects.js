@@ -1,7 +1,7 @@
-const iconProjects = (state = false, { type }) => {
+const iconProjects = (state = false, { type, bool }) => {
   switch (type) {
-    case "PROJECTS_TO_ICON":
-      return true;
+    case "SET_PROJECTS_CONTACT":
+      return bool;
     default:
       return state;
   }

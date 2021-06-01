@@ -125,6 +125,7 @@ function App() {
           return (
             <Route key={e} path={`/${e}`}>
               <ProjectShowcase
+                uid={e}
                 image={projects[e]["image"]}
                 pics={projects[e]["pics"]}
                 descriptions={projects[e]["descriptions"]}

@@ -1,11 +1,22 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { nextCarouselSlide, prevCarouselSlide } from "../../actions";
 import Slide from "../components/Slide/Slide";
 import "./multiplayer.css";
 
-const ProjectShowcase = ({ image, pics, description, descriptions, repo }) => {
+const ProjectShowcase = ({
+  uid,
+  image,
+  pics,
+  description,
+  descriptions,
+  repo,
+}) => {
+  const dispatch = useDispatch();
   const viewVertical = useSelector((state) => state.viewVertical);
-  const [carouselPosition, setCarouselPosition] = useState(0);
+  const carouselPosition = useSelector(
+    (state) => state.carouselPosition[uid] || 0
+  );
 
   const leftBtn = useRef(false);
 
@@ -15,18 +26,12 @@ const ProjectShowcase = ({ image, pics, description, descriptions, repo }) => {
 
   const nextSlide = () => {
     leftBtn.current = false;
-    if (carouselPosition === pics.length - 1) {
-      return setCarouselPosition(0);
-    }
-    setCarouselPosition((prev) => prev + 1);
+    dispatch(nextCarouselSlide(uid, pics.length - 1));
   };
 
   const prevSlide = () => {
     leftBtn.current = true;
-    if (carouselPosition === 0) {
-      return setCarouselPosition(pics.length - 1);
-    }
-    setCarouselPosition((prev) => prev - 1);
+    dispatch(prevCarouselSlide(uid, pics.length - 1));
   };
 
   const projectPage = () => {

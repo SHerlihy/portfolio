@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addLetter, resetAdWord } from "../../../actions";
 import "./showcase.css";
 
 const Showcase = () => {
-  const [adWord, setAdWord] = useState("");
+  const dispatch = useDispatch();
+  const adWord = useSelector((state) => state.adWord);
 
   const word = useRef(0);
 
@@ -25,24 +28,28 @@ const Showcase = () => {
     if (sellWords[sellWords.length - 1] === adWord) {
       word.current = 0;
       index.current = 0;
-      return setAdWord("");
+      return dispatch(resetAdWord());
     }
     if (adWord === sellWords[word.current]) {
       word.current = word.current + 1;
       index.current = 0;
-      return setAdWord("");
+      return dispatch(resetAdWord());
     }
-    setAdWord((prev) => {
-      const progress = prev + sellWords[word.current][index.current];
-
-      return progress;
-    });
+    dispatch(addLetter(sellWords[word.current][index.current]));
     index.current = index.current + 1;
   }, [adWord]);
 
   useEffect(() => {
     setTimeout(() => scrollWords(), 500);
   }, [adWord, scrollWords]);
+
+  useEffect(() => {
+    return () => {
+      setTimeout(() => {
+        dispatch(resetAdWord());
+      }, 500);
+    };
+  }, []);
 
   return (
     <div className="showcase">

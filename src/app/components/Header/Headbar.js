@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { changeCurrentPage } from "../../../actions/index";
+import {
+  changeCurrentPage,
+  setProjectsIcon,
+  setIconContact,
+  toggleShowContact,
+} from "../../../actions/index";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import "./headbar.css";
@@ -16,31 +21,27 @@ const ContactInfo = (props) => {
 };
 
 const Headbar = () => {
-  const viewVertical = useSelector((state) => state.viewVertical);
-
-  const [iconContact, setIconContact] = useState(false);
-
-  const [iconProjects, setIconProjects] = useState(false);
-
-  const currentPage = useSelector((state) => state.currentPage);
-
-  const [showContact, setShowContact] = useState(false);
-
   const dispatch = useDispatch();
+
+  const viewVertical = useSelector((state) => state.viewVertical);
+  const iconContact = useSelector((state) => state.iconContact);
+  const iconProjects = useSelector((state) => state.iconProjects);
+  const showContact = useSelector((state) => state.showContact);
+  const currentPage = useSelector((state) => state.currentPage);
 
   const changePage = (page) => {
     dispatch(changeCurrentPage(page));
   };
 
   const renderContact = () => {
-    setShowContact((prev) => !prev);
+    dispatch(toggleShowContact());
   };
 
   window.addEventListener(
     "resize",
     () => {
       const smallWidth = window.innerWidth < 515;
-      setIconProjects(smallWidth && !viewVertical);
+      dispatch(setProjectsIcon(smallWidth && !viewVertical));
     },
     false
   );
@@ -50,7 +51,7 @@ const Headbar = () => {
       "resize",
       () => {
         const smallWidth = window.innerWidth < 850;
-        setIconContact(smallWidth && !viewVertical);
+        dispatch(setIconContact(smallWidth && !viewVertical));
       },
       false
     );
