@@ -1,7 +1,7 @@
-const viewVertical = (state = false, action) => {
-  switch (action.type) {
+const viewVertical = (state = false, { type, payload }) => {
+  switch (type) {
     case "CHANGE_VIEW_VERTICAL":
-      return action.payload;
+      return payload;
     default:
       return state;
   }

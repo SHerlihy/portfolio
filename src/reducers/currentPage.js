@@ -1,7 +1,7 @@
-const currentPage = (state = "home", action) => {
-  switch (action.type) {
+const currentPage = (state = "home", { type, payload }) => {
+  switch (type) {
     case "CHANGE_CURRENT_PAGE":
-      return action.payload;
+      return payload;
     default:
       return state;
   }
