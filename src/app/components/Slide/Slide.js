@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleEnhance } from "../../../actions";
 import "./slide.css";
@@ -62,6 +62,7 @@ const Slide = ({ e, i, carouselPosition, descriptions, button }) => {
 
   return (
     <div
+      data-test="component-slide"
       key={e}
       style={{ animation: `${motion(button)} 0.3s ease-in forwards` }}
       className={`slide`}
