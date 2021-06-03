@@ -1,14 +1,14 @@
 import React from "react";
 import { mount } from "enzyme";
-import { findByTestAttr, storeFactory } from "../testUtils";
+import { findByTestAttr, storeFactory } from "../../testUtils";
 import { Provider } from "react-redux";
-import App from "./App";
+import Home from "./Home";
 
-const setup = (initialState = {}) => {
+const setup = (initialState = {}, data = {}) => {
   const store = storeFactory(initialState);
   return mount(
     <Provider store={store}>
-      <App />
+      <Home data={data} />
     </Provider>
   );
 };
@@ -16,10 +16,10 @@ const setup = (initialState = {}) => {
 describe("render", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = setup();
+    wrapper = setup({ viewVertical: false });
   });
-  test("should render App", () => {
-    const appComponent = findByTestAttr(wrapper, "component-app");
+  test("should render Home", () => {
+    const appComponent = findByTestAttr(wrapper, "component-home");
     expect(appComponent.length).toBe(1);
   });
 });

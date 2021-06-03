@@ -13,7 +13,7 @@ const Home = ({ data }) => {
   }, []);
 
   return (
-    <div className="home">
+    <div data-test="component-home" className="home">
       <Showcase />
       <About />
       <div className="projects-wrap">

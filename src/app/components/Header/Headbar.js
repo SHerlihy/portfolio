@@ -7,7 +7,7 @@ import {
   toggleShowContact,
 } from "../../../actions/index";
 import ReactDOM from "react-dom";
-import { Link } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 import "./headbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCoffee } from "@fortawesome/free-solid-svg-icons";
@@ -66,59 +66,61 @@ const Headbar = () => {
   };
 
   return (
-    <div className="headbar-wrap">
+    <div data-test="component-headbar" className="headbar-wrap">
       <nav className="headbar">
-        <Link
-          onClick={() => changePage("home")}
-          className={`ends ${currentPage === "home" && "highlight"}`}
-          to="/"
-        >
-          <i class="fas fa-home"></i>
-        </Link>
-        <div className="proj-button">
+        <BrowserRouter>
           <Link
-            onClick={() => changePage("multiplayer")}
-            className={currentPage === "multiplayer" && "highlight"}
-            to="/multiplayer"
+            onClick={() => changePage("home")}
+            className={`ends ${currentPage === "home" && "highlight"}`}
+            to="/"
           >
-            {viewVertical ? (
-              <i class="fas fa-gamepad"></i>
-            ) : (
-              projectsFormatter(
-                <i class="fas fa-gamepad"></i>,
-                "Multiplayer Game"
-              )
-            )}
+            <i class="fas fa-home"></i>
           </Link>
-          <Link
-            onClick={() => changePage("builder")}
-            className={currentPage === "builder" && "highlight"}
-            to="/builder"
-          >
-            {viewVertical ? (
-              <i class="fas fa-hamburger"></i>
-            ) : (
-              projectsFormatter(
-                <i class="fas fa-hamburger"></i>,
-                "Burger Builder"
-              )
-            )}
-          </Link>
-          <Link
-            onClick={() => changePage("inventory")}
-            className={currentPage === "inventory" && "highlight"}
-            to="/inventory"
-          >
-            {viewVertical ? (
-              <i class="fas fa-clipboard-list"></i>
-            ) : (
-              projectsFormatter(
-                <i class="fas fa-clipboard-list"></i>,
-                "Inventory Manager"
-              )
-            )}
-          </Link>
-        </div>
+          <div className="proj-button">
+            <Link
+              onClick={() => changePage("multiplayer")}
+              className={currentPage === "multiplayer" && "highlight"}
+              to="/multiplayer"
+            >
+              {viewVertical ? (
+                <i class="fas fa-gamepad"></i>
+              ) : (
+                projectsFormatter(
+                  <i class="fas fa-gamepad"></i>,
+                  "Multiplayer Game"
+                )
+              )}
+            </Link>
+            <Link
+              onClick={() => changePage("builder")}
+              className={currentPage === "builder" && "highlight"}
+              to="/builder"
+            >
+              {viewVertical ? (
+                <i class="fas fa-hamburger"></i>
+              ) : (
+                projectsFormatter(
+                  <i class="fas fa-hamburger"></i>,
+                  "Burger Builder"
+                )
+              )}
+            </Link>
+            <Link
+              onClick={() => changePage("inventory")}
+              className={currentPage === "inventory" && "highlight"}
+              to="/inventory"
+            >
+              {viewVertical ? (
+                <i class="fas fa-clipboard-list"></i>
+              ) : (
+                projectsFormatter(
+                  <i class="fas fa-clipboard-list"></i>,
+                  "Inventory Manager"
+                )
+              )}
+            </Link>
+          </div>
+        </BrowserRouter>
         <button
           className={`ends contact ${showContact && "highlight"}`}
           onClick={renderContact}

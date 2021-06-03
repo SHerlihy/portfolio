@@ -36,7 +36,7 @@ const ProjectShowcase = ({
 
   const projectPage = () => {
     return (
-      <div className="multiplayer-wrap">
+      <div data-test="component-project-showcase" className="multiplayer-wrap">
         {viewVertical ? (
           <img className="vert-main-pic" src={image}></img>
         ) : (

@@ -1,14 +1,14 @@
 import React from "react";
 import { mount } from "enzyme";
-import { findByTestAttr, storeFactory } from "../testUtils";
+import { findByTestAttr, storeFactory } from "../../../testUtils";
 import { Provider } from "react-redux";
-import App from "./App";
+import Headbar from "./Headbar";
 
 const setup = (initialState = {}) => {
   const store = storeFactory(initialState);
   return mount(
     <Provider store={store}>
-      <App />
+      <Headbar />
     </Provider>
   );
 };
@@ -18,8 +18,8 @@ describe("render", () => {
   beforeEach(() => {
     wrapper = setup();
   });
-  test("should render App", () => {
-    const appComponent = findByTestAttr(wrapper, "component-app");
+  test("should render Headbar", () => {
+    const appComponent = findByTestAttr(wrapper, "component-headbar");
     expect(appComponent.length).toBe(1);
   });
 });

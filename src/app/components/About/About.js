@@ -3,7 +3,7 @@ import "./about.css";
 
 const About = () => {
   return (
-    <div className="about-wrap">
+    <div data-test="component-about" className="about-wrap">
       <div className="about">
         <img className="steve" src="images/steve.jpg"></img>
 
