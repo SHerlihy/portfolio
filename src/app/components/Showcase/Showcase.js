@@ -55,7 +55,9 @@ const Showcase = () => {
     <div data-test="component-showcase" className="showcase">
       <img className="show-pic" src="images/stars.jpg"></img>
       <h1 className="site-name">Steves Sites</h1>
-      <p className="sell-words">{adWord}</p>
+      <p data-test="showcase-sellwords" className="sell-words">
+        {adWord}
+      </p>
     </div>
   );
 };
