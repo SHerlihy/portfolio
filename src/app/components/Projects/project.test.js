@@ -36,3 +36,34 @@ describe("render", () => {
     expect(appComponent.length).toBe(1);
   });
 });
+
+describe("mouse enter and leave", () => {
+  const componentProject = () => findByTestAttr(wrapper, "component-project");
+  const projectImage = () => findByTestAttr(wrapper, "project-image");
+  const content = () => findByTestAttr(wrapper, "content");
+  let wrapper;
+  beforeEach(() => {
+    wrapper = setup({ viewVertical: false, showPics: false });
+  });
+
+  test("should enhancePic on mouse enter", () => {
+    expect(componentProject().hasClass("normal")).toEqual(true);
+    expect(projectImage().hasClass("reduce")).toEqual(true);
+    expect(content().length).toBe(1);
+  });
+
+  test("should enhancePic on mouse enter", () => {
+    projectImage().simulate("mouseenter");
+    expect(componentProject().hasClass("normal")).toEqual(false);
+    expect(projectImage().hasClass("enhance")).toEqual(true);
+    expect(content().length).toBe(0);
+  });
+
+  test("should reduce pic on mouse leave", () => {
+    projectImage().simulate("mouseenter");
+    projectImage().simulate("mouseleave");
+    expect(componentProject().hasClass("normal")).toEqual(true);
+    expect(projectImage().hasClass("reduce")).toEqual(true);
+    expect(content().length).toBe(1);
+  });
+});

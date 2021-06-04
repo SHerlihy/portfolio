@@ -61,16 +61,17 @@ const Project = ({ address, image, title, description, idx }) => {
     return (
       <div
         data-test="component-project"
-        className={`project ${side} ${!showPics && `normal`}`}
+        className={`project ${side} ${showPics ? `` : `normal`}`}
       >
         <img
+          data-test="project-image"
           onMouseEnter={overlayPics}
           onMouseLeave={overlayPics}
           className={`pic ${showPics ? "enhance" : "reduce"}`}
           src={image}
         ></img>
         {!showPics && (
-          <div className={`${side}-content content-wrap`}>
+          <div data-test="content" className={`${side}-content content-wrap`}>
             <div className="content">
               <BrowserRouter>
                 <Link
