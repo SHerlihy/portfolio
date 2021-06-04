@@ -78,6 +78,7 @@ const Headbar = () => {
           </Link>
           <div className="proj-button">
             <Link
+              data-test="project-one"
               onClick={() => changePage("multiplayer")}
               className={currentPage === "multiplayer" && "highlight"}
               to="/multiplayer"
@@ -92,6 +93,7 @@ const Headbar = () => {
               )}
             </Link>
             <Link
+              data-test="project-two"
               onClick={() => changePage("builder")}
               className={currentPage === "builder" && "highlight"}
               to="/builder"
@@ -106,6 +108,7 @@ const Headbar = () => {
               )}
             </Link>
             <Link
+              data-test="project-three"
               onClick={() => changePage("inventory")}
               className={currentPage === "inventory" && "highlight"}
               to="/inventory"
