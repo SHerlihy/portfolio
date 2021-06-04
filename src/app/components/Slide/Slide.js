@@ -44,7 +44,7 @@ const Slide = ({ e, i, carouselPosition, descriptions, button }) => {
       attributes["className"] = horizImgClasses();
     }
     console.log(attributes);
-    return <img src={e} {...attributes} />;
+    return <img data-test="slide-image" src={e} {...attributes} />;
   };
 
   const slideContent = () => {
@@ -53,7 +53,7 @@ const Slide = ({ e, i, carouselPosition, descriptions, button }) => {
         {slideImg()}
         <div className="sub-desc">
           {descriptions[i].map((e) => {
-            return <p>{e}</p>;
+            return <p data-test="slide-description">{e}</p>;
           })}
         </div>
       </div>
