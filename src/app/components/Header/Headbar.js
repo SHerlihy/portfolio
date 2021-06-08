@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   changeCurrentPage,
@@ -7,10 +7,8 @@ import {
   toggleShowContact,
 } from "../../../actions/index";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./headbar.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 
 const ContactInfo = (props) => {
   return (
@@ -37,93 +35,94 @@ const Headbar = () => {
     dispatch(toggleShowContact());
   };
 
-  window.addEventListener(
-    "resize",
-    () => {
-      const smallWidth = window.innerWidth < 515;
-      dispatch(setProjectsIcon(smallWidth && !viewVertical));
-    },
-    false
-  );
-
   useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => {
+    let timeoutId = null;
+
+    const setContactIcon = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
         const smallWidth = window.innerWidth < 850;
         dispatch(setIconContact(smallWidth && !viewVertical));
-      },
-      false
-    );
-  });
+      }, 500);
+    };
+
+    window.addEventListener("resize", setContactIcon);
+
+    return () => {
+      window.removeEventListener("resize", setContactIcon);
+    };
+  }, []);
 
   const projectsFormatter = (icon, text) => {
     return iconProjects ? icon : text;
   };
 
   const contactFormatter = () => {
-    return iconContact ? <i class="far fa-envelope-open"></i> : "Contact Me";
+    return iconContact ? (
+      <i data-test="contact-icon" class="far fa-envelope-open"></i>
+    ) : (
+      "Contact Me"
+    );
   };
 
   return (
     <div data-test="component-headbar" className="headbar-wrap">
       <nav className="headbar">
-        <BrowserRouter>
-          <Link
-            onClick={() => changePage("home")}
-            className={`ends ${currentPage === "home" && "highlight"}`}
-            to="/"
+        <NavLink
+          onClick={() => changePage("home")}
+          className={`ends ${currentPage === "home" && "highlight"}`}
+          to="/"
+        >
+          <i class="fas fa-home"></i>
+        </NavLink>
+        <div className="proj-button">
+          <NavLink
+            data-test="project-one"
+            onClick={() => changePage("multiplayer")}
+            className={currentPage === "multiplayer" && "highlight"}
+            to="/multiplayer"
           >
-            <i class="fas fa-home"></i>
-          </Link>
-          <div className="proj-button">
-            <Link
-              data-test="project-one"
-              onClick={() => changePage("multiplayer")}
-              className={currentPage === "multiplayer" && "highlight"}
-              to="/multiplayer"
-            >
-              {viewVertical ? (
-                <i class="fas fa-gamepad"></i>
-              ) : (
-                projectsFormatter(
-                  <i class="fas fa-gamepad"></i>,
-                  "Multiplayer Game"
-                )
-              )}
-            </Link>
-            <Link
-              data-test="project-two"
-              onClick={() => changePage("builder")}
-              className={currentPage === "builder" && "highlight"}
-              to="/builder"
-            >
-              {viewVertical ? (
-                <i class="fas fa-hamburger"></i>
-              ) : (
-                projectsFormatter(
-                  <i class="fas fa-hamburger"></i>,
-                  "Burger Builder"
-                )
-              )}
-            </Link>
-            <Link
-              data-test="project-three"
-              onClick={() => changePage("inventory")}
-              className={currentPage === "inventory" && "highlight"}
-              to="/inventory"
-            >
-              {viewVertical ? (
-                <i class="fas fa-clipboard-list"></i>
-              ) : (
-                projectsFormatter(
-                  <i class="fas fa-clipboard-list"></i>,
-                  "Inventory Manager"
-                )
-              )}
-            </Link>
-          </div>
-        </BrowserRouter>
+            {viewVertical ? (
+              <i class="fas fa-gamepad"></i>
+            ) : (
+              projectsFormatter(
+                <i data-test="project-one-icon" class="fas fa-gamepad"></i>,
+                "Multiplayer Game"
+              )
+            )}
+          </NavLink>
+          <NavLink
+            data-test="project-two"
+            onClick={() => changePage("builder")}
+            className={currentPage === "builder" && "highlight"}
+            to="/builder"
+          >
+            {viewVertical ? (
+              <i class="fas fa-hamburger"></i>
+            ) : (
+              projectsFormatter(
+                <i class="fas fa-hamburger"></i>,
+                "Burger Builder"
+              )
+            )}
+          </NavLink>
+          <NavLink
+            data-test="project-three"
+            onClick={() => changePage("inventory")}
+            className={currentPage === "inventory" && "highlight"}
+            to="/inventory"
+          >
+            {viewVertical ? (
+              <i class="fas fa-clipboard-list"></i>
+            ) : (
+              projectsFormatter(
+                <i class="fas fa-clipboard-list"></i>,
+                "Inventory Manager"
+              )
+            )}
+          </NavLink>
+        </div>
+
         <button
           className={`ends contact ${showContact && "highlight"}`}
           onClick={renderContact}

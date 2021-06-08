@@ -1,5 +1,5 @@
-import { lazy, Suspense } from "react";
-import { useDispatch } from "../react-redux-hooks";
+import { lazy, Suspense, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { changeViewVertical } from "../actions/index";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import { projects } from "./projectInfo";
@@ -12,15 +12,23 @@ const ProjectShowcase = lazy(() => import("./ProjectShowcase/ProjectShowcase"));
 function App() {
   const dispatch = useDispatch();
 
-  window.addEventListener(
-    "resize",
-    () => {
-      const isVertical = window.innerHeight > window.innerWidth;
-      console.log(isVertical);
-      dispatch(changeViewVertical(isVertical));
-    },
-    false
-  );
+  useEffect(() => {
+    let timeoutId = null;
+
+    const setVertical = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        const isVertical = window.innerHeight > window.innerWidth;
+        dispatch(changeViewVertical(isVertical));
+      }, 500);
+    };
+
+    window.addEventListener("resize", setVertical);
+
+    return () => {
+      window.removeEventListener("resize", setVertical);
+    };
+  }, []);
 
   return (
     <main data-test="component-app" className="App">

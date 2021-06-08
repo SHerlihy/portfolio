@@ -52,3 +52,37 @@ describe("clicking on the links", () => {
     expect(proOneATag().hasClass("highlight")).toEqual(false);
   });
 });
+
+describe("resizing", () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = setup({ viewVertical: false });
+  });
+
+  const proOneIcon = () => findByTestAttr(wrapper, "project-one-icon");
+  const contactIcon = () => findByTestAttr(wrapper, "contact-icon");
+  const projectOne = () => findByTestAttr(wrapper, "project-one");
+  const proOneATag = () => projectOne().find("a");
+  const projectTwo = () => findByTestAttr(wrapper, "project-two");
+  const proTwoATag = () => projectTwo().find("a");
+  const projectThree = () => findByTestAttr(wrapper, "project-three");
+  const proThreeATag = () => projectThree().find("a");
+
+  // test("should render contact icon on resize", () => {
+  //   expect(contactIcon().length).toBe(0);
+  //   global.innerWidth = 800;
+  //   global.dispatchEvent(new Event("resize"));
+  //   expect(contactIcon().length).toBe(1);
+  // });
+
+  test("should render project icon on resize", () => {
+    expect(proOneIcon().length).toBe(0);
+    window.innerWidth = 500;
+    window.innerHeight = 400;
+    window.dispatchEvent(new Event("resize"));
+    console.log(wrapper.props().store);
+    console.log(window.innerWidth);
+    console.log(window.innerHeight);
+    expect(proOneIcon().length).toBe(1);
+  });
+});
