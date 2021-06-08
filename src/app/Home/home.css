@@ -30,6 +30,7 @@
 }
 
 .home .projects {
+  margin-top: 20vh;
   padding-top: 5vh;
   width: 80%;
   -ms-flex-item-align: center;
@@ -38,7 +39,8 @@
 }
 
 .home .vert-projects {
-  padding-top: 5vh;
+  margin-top: 10vw;
+  padding-top: 5vw;
   width: 100%;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;

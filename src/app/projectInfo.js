@@ -6,9 +6,9 @@ export const projects = {
       "The multiplayer game is an arm wrestling mini-game designed to tie-in with the game Dungeons and Dragons (D&D). The inspiration for creating this application came from my personal experience of playing a game of D&D, my character entering an arm wrestling competition and I came up with some fun rules for the arm wrestling mini-game. Having fun with the rules I decided it would be nice to be able to share this with fellow D&D players through this web app.",
     ],
     pics: [
-      "images/projects/multiplayer-playing.png",
-      "images/projects/multiplayer-mid.png",
-      "images/projects/multiplayer-endgame.png",
+      "images/projects/startGame.gif",
+      "images/projects/statsGame.gif",
+      "images/projects/endGame.gif",
     ],
     descriptions: [
       [
@@ -36,18 +36,17 @@ export const projects = {
       "A front-end application for customers to create their own burger and order it. The premise of this project is adapted from a tutorial. The tutorial made use of class-based components to build the app and used bootstrap for styling. I decided to make use of functional react components, react hooks, added an expressJS backend and use CSS for styling.",
     ],
     pics: [
-      "images/projects/builder-builder.png",
-      "images/projects/builder-ing-choice.png",
+      "images/projects/addIngredients.gif",
+      "images/projects/subIngredients.gif",
     ],
 
     descriptions: [
       [
-        "The left panel of the image shows many different states being used to manage the application and the useEffect hook being used to retrieve data from the backend during initialisation. The right panel shows the elements and components to be renders and begins with an overlay component, followed by mapping over an array to render all of the selected ingredients to create the burger and mapping over another array to render the available ingredient choices.",
-        "The overlay component accepts a prop to determine whether the component is to have a class that hides the component or whether it is to be displayed. If I were to re-visit this project, I would conditionally render the overlay instead of using classes to hide it as I think this will reduce the initial load time of the application and this can be beneficial for User Experience and SEO. There are many props being passed to components but fortunately the app isn’t so complex as to require a state store such as react redux etc.",
+        "Due to the constant re-rendering required, React.js was the perfect solution to keeping the app performant. As ingredients are added or taken away the corresponding ingredient component is rendered in the burger. Additionally, the price is re-rendered based on the cost change on the ingredients selected. Everything I implemented in this app was done from the lens of user experience to take a prospective customer from hungry to burger time as fast as possible.",
+        "I’ve added subtle hover effects on the buttons to make use very easy for the consumer. I’ve also decided to make the buttons very big for ease of use which translates very well for mobile use. The price of the burger is very close to the centre of the page so it’s easy for the user to see regardless of where their focus is and, as I placed it in a conspicuous location, I decided adding a “Buy” button there would be a great addition for customer convenience.",
       ],
       [
-        "The choice component on the left dynamically renders a css image of the ingredient using the ingredient prop. The add and remove props that have been passed in are used in the button elements allowing the state that is higher up in the component tree to be updated.",
-        "The ingredient component on the right is rendered multiple times with different ingredients to show the ingredients inside the users custom burger.",
+        "Removing ingredients is clean as there isn’t any way to remove more ingredients than the customer has added and the price updates correctly. Another way I’ve prevented potential issues is to ensure the ingredient options are rendered only from ingredients that are in stock from the back-end. Once a burger is bought the ingredients used in the burger are deducted from the stock levels on the back-end and eventually this leads to ingredient options no longer rendering as the ingredient is out of stock.",
       ],
     ],
     repo: [
@@ -61,21 +60,15 @@ export const projects = {
     description: [
       "The inventory manager app uses class based components and API routes to add new ingredients to the database and change the current stock levels of ingredients already in the database.",
     ],
-    pics: [
-      "images/projects/inventory-new-ing.png",
-      "images/projects/inventory-manage.png",
-      "images/projects/inventory-backend.png",
-    ],
+    pics: ["images/projects/updateStock.gif", "images/projects/addStock.gif"],
 
     descriptions: [
       [
-        "The new ingredient component is a simple form. State is used to record the users inputs through the handle change method and then the state is submitted to the database through the handle submit method.",
+        "I took the mobile first approach to the design of this app. I reasoned as the user is a manager in a fast-food restaurant, it’s unlikely they will be sat at a desktop computer and instead would need a mobile app for their mobile work.",
+        "The app renders the ingredients that are already in the inventory database and shows their stock levels as placeholder values to give the user a reference to the current stock so they know the value to enter if they only know the increment or decrement in stock. I’ve also added functionality to show that the user has updated the stock value to prevent a user mis-clicking and not updating stock.",
       ],
       [
-        "The manage existing stock component is a very similar form to the new ingredient component. One difference is that each manage stock component is dynamically rendered based on the stock currently in the database.",
-      ],
-      [
-        "The backend web application has API routes that serve data to the burger builder app and the stock management app. I’m using express and mongoose to help me create the backend. In the comment on the right, you can see I’ve expressed the intended use is to only have certain routes available to the applications that are used by the client and not exposed in apps used by the client’s customers. The reason for this is to increase the safety of the app.",
+        "Adding ingredients is simple and I’ve decided to place the option at the bottom of the app so the user has to see what is currently being stocked before they may add a stock item needlessly. As you can see from the gif, on re-render the new stock item renders into the list of existing ones. In further development I’d force a re-render after the “Add Ingredient” button is clicked so the user gets feedback that the addition was a success.",
       ],
     ],
     repo: [
